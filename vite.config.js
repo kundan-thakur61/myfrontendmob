@@ -51,18 +51,22 @@ export default defineConfig(({ mode }) => {
 
       rollupOptions: {
         output: {
-          manualChunks: {
-            ui: [
-              'framer-motion',
-              'react-icons',
-              'react-toastify',
-              '@mui/material',
-              '@emotion/react',
-              '@emotion/styled',
-            ],
-            utils: ['axios', 'socket.io-client'],
-            fabric: ['fabric'],
-          },
+         manualChunks: {
+  react: ['react', 'react-dom'], // ⭐ IMPORTANT
+
+  ui: [
+    'framer-motion',
+    'react-icons',
+    'react-toastify',
+    '@mui/material',
+    '@emotion/react',
+    '@emotion/styled',
+  ],
+
+  utils: ['axios', 'socket.io-client'],
+  fabric: ['fabric'],
+},
+
 
           assetFileNames: (assetInfo) => {
             const ext = assetInfo.name.split('.').pop();
