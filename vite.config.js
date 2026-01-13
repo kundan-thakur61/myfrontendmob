@@ -80,13 +80,9 @@ export default defineConfig(({ mode }) => {
               return 'fabric';
             }
             
-            // Group smaller packages together
-            if (id.includes('node_modules/@babel/') || 
-                id.includes('node_modules/regenerator-runtime/') ||
-                id.includes('node_modules/scheduler/') ||
-                id.includes('node_modules/use-sync-external-store/') ||
-                id.includes('node_modules/tiny-warning/') ||
-                id.includes('node_modules/loose-envify/')) {
+            // Group smaller packages together (excluding React-related packages)
+            if (id.includes('node_modules/@babel/') ||
+                id.includes('node_modules/regenerator-runtime/')) {
               return 'shared-vendor';
             }
             
