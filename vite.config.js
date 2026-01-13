@@ -48,9 +48,15 @@ export default defineConfig(({ mode }) => {
         manualChunks: (id) => {
           if (id.includes('node_modules/')) {
             // Core React libraries
-            if (id.includes('node_modules/react/') || 
+            if (id.includes('node_modules/react/') ||
                 id.includes('node_modules/react-dom/') ||
-                id.includes('node_modules/react-router')) {
+                id.includes('node_modules/react-router') ||
+                id.includes('node_modules/scheduler/') ||
+                id.includes('node_modules/use-sync-external-store/') ||
+                id.includes('node_modules/@babel/') ||
+                id.includes('node_modules/regenerator-runtime/') ||
+                id.includes('node_modules/tiny-warning/') ||
+                id.includes('node_modules/loose-envify/')) {
               return 'react-core';
             }
             // Redux state management
